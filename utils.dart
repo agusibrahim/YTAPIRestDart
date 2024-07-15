@@ -20,7 +20,9 @@ dynamic streamToJson(MuxedStreamInfo streamInfo) {
     "highReplication": true,
     "approxDurationMs": "0",
     "has_audio": true,
-    "has_video": true
+    "has_video": true,
+    "codec": streamInfo.audioCodec,
+    "name": "agus",
   };
 }
 
@@ -43,8 +45,9 @@ dynamic streamVideoToJson(VideoStreamInfo streamInfo) {
     "averageBitrate": 0,
     "highReplication": true,
     "approxDurationMs": "0",
-    "has_audio": streamInfo.codec.type,
+    // "has_audio": streamInfo.codec.type == 'video',
     "has_video": "${streamInfo.codec.parameters["codecs"]}".contains("mp4"),
     "has_videos": true,
+    "has_audio": streamInfo.codec.parameters['codecs']?.contains("mp4a.40.2") ?? false,
   };
 }

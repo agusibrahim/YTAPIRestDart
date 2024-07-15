@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   dart_frog: ^1.0.0
-  youtube_explode_dart: ^2.1.0
+  youtube_explode_dart: ^2.2.1
 
 dev_dependencies:
   mocktail: ^1.0.0
